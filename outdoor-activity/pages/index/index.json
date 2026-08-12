@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "野见山川",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "activity-card": "/components/activity-card/activity-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "load-more": "/components/load-more/load-more",
+    "privacy-popup": "/components/privacy-popup/privacy-popup"
+  }
+}

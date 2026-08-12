@@ -1,0 +1,58 @@
+<view class="page-login">
+  <!-- Logo 区域 -->
+  <view class="logo-area">
+    <view class="logo-icon">🏔️</view>
+    <text class="app-name">野见山川</text>
+    <text class="app-slogan">发现身边的户外精彩</text>
+  </view>
+
+  <!-- 登录表单 -->
+  <view class="login-form">
+    <view class="avatar-section">
+      <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image
+          class="user-avatar"
+          src="{{avatarUrl || '/images/placeholders/default-avatar.png'}}"
+          mode="aspectFill"
+        />
+        <text class="avatar-tip">点击获取头像</text>
+      </button>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">昵称</text>
+      <input
+        class="form-input nickname-input"
+        type="nickname"
+        placeholder="请输入昵称"
+        value="{{nickName}}"
+        bindinput="onNickNameInput"
+        bindblur="onNickNameBlur"
+      />
+    </view>
+  </view>
+
+  <!-- 登录按钮 -->
+  <view class="login-actions">
+    <button class="btn btn-primary btn-block btn-login" bind:tap="onLogin">
+      微信一键登录
+    </button>
+    <text class="skip-text" bind:tap="onSkip">暂不登录，先逛逛</text>
+  </view>
+
+  <!-- 协议说明：默认不勾选，由用户自主阅读后主动同意 -->
+  <view class="agreement">
+    <view class="checkbox {{agreed ? 'checkbox-checked' : ''}}" bind:tap="onToggleAgree">
+      <text wx:if="{{agreed}}" class="checkbox-icon">✓</text>
+    </view>
+    <view class="agreement-content">
+      <text class="agreement-text">我已阅读并同意</text>
+      <text class="agreement-link" catch:tap="goUserAgreement">《用户服务协议》</text>
+      <text class="agreement-text">和</text>
+      <text class="agreement-link" catch:tap="goPrivacyPolicy">《隐私政策》</text>
+    </view>
+  </view>
+
+  <!-- 官方隐私授权弹窗 -->
+  <privacy-popup />
+</view>

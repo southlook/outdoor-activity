@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我报名的活动",
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state",
+    "privacy-popup": "/components/privacy-popup/privacy-popup"
+  }
+}

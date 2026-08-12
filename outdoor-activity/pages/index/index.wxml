@@ -1,0 +1,59 @@
+<view class="page-index">
+  <!-- 官方隐私授权弹窗 -->
+  <privacy-popup />
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-inner">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索目的地、活动名称"
+        placeholder-class="search-placeholder"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearch"
+        confirm-type="search"
+      />
+      <text class="search-clear" wx:if="{{keyword}}" bind:tap="onClearSearch">✕</text>
+    </view>
+  </view>
+
+  <!-- 分类筛选 -->
+  <scroll-view class="category-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+    <view
+      class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="id"
+      bind:tap="onCategoryTap"
+      data-id="{{item.id}}"
+    >
+      <text class="category-icon">{{item.icon}}</text>
+      <text class="category-name">{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 活动列表 -->
+  <view class="activity-list" wx:if="{{activityList.length > 0}}">
+    <activity-card
+      wx:for="{{activityList}}"
+      wx:key="_id"
+      activity="{{item}}"
+    />
+  </view>
+
+  <!-- 空状态 -->
+  <empty-state
+    wx:if="{{!loading && activityList.length === 0}}"
+    icon="🏕️"
+    text="暂无活动，快来发布第一个吧"
+    actionText="去发布"
+    bind:action="goPublish"
+  />
+
+  <!-- 加载更多 -->
+  <load-more
+    wx:if="{{activityList.length > 0}}"
+    status="{{loadMoreStatus}}"
+  />
+</view>

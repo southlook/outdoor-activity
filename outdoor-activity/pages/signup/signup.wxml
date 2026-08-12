@@ -1,0 +1,111 @@
+<view class="page-signup">
+  <!-- 官方隐私授权弹窗 -->
+  <privacy-popup />
+
+  <!-- 活动信息摘要 -->
+  <view class="activity-summary">
+    <text class="summary-title">{{activityTitle}}</text>
+    <view class="summary-fee">
+      <text class="fee-label">费用</text>
+      <text class="fee-value">¥{{fee}}/人</text>
+    </view>
+  </view>
+
+  <!-- 报名表单 -->
+  <view class="form-card">
+    <view class="form-group">
+      <text class="form-label">报名人姓名<text class="required">*</text></text>
+      <input class="form-input" placeholder="请输入真实姓名" value="{{form.name}}" bindinput="onInput" data-field="name" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">手机号码<text class="required">*</text></text>
+      <input class="form-input" type="number" maxlength="11" placeholder="请输入手机号码" value="{{form.phone}}" bindinput="onInput" data-field="phone" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">报名人数<text class="required">*</text></text>
+      <view class="counter-row">
+        <view class="counter-btn {{form.count <= 1 ? 'disabled' : ''}}" bind:tap="onDecrease">
+          <text>−</text>
+        </view>
+        <text class="counter-value">{{form.count}}</text>
+        <view class="counter-btn {{form.count >= maxCount ? 'disabled' : ''}}" bind:tap="onIncrease">
+          <text>+</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">紧急联系人<text class="required">*</text></text>
+      <input class="form-input" placeholder="请输入紧急联系人姓名" value="{{form.emergencyContact}}" bindinput="onInput" data-field="emergencyContact" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">紧急联系电话<text class="required">*</text></text>
+      <input class="form-input" type="number" maxlength="11" placeholder="请输入紧急联系人电话" value="{{form.emergencyPhone}}" bindinput="onInput" data-field="emergencyPhone" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">备注信息</text>
+      <textarea class="form-textarea" placeholder="如有特殊需求请在此说明（选填）" value="{{form.remark}}" bindinput="onInput" data-field="remark" maxlength="200" />
+    </view>
+  </view>
+
+  <!-- 报名须知 -->
+  <view class="notice-card">
+    <view class="notice-title">报名须知</view>
+    <view class="notice-list">
+      <view class="notice-item">
+        <text class="notice-dot">•</text>
+        <text>报名成功后如需取消，请提前48小时联系组织者</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-dot">•</text>
+        <text>请确保身体健康状况适合参加本次活动</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-dot">•</text>
+        <text>活动中请听从领队安排，注意安全</text>
+      </view>
+    </view>
+    <view class="agree-row" bind:tap="toggleAgree">
+      <view class="checkbox {{agreed ? 'checked' : ''}}">
+        <text wx:if="{{agreed}}">✓</text>
+      </view>
+      <text class="agree-text">我已阅读并同意《报名须知》和《免责声明》</text>
+    </view>
+  </view>
+
+  <!-- 底部占位 -->
+  <view class="bottom-placeholder"></view>
+
+  <!-- 底部费用栏 -->
+  <view class="bottom-bar safe-bottom">
+    <view class="total-fee">
+      <text class="total-label">合计：</text>
+      <text class="total-value">¥{{totalFee}}</text>
+    </view>
+    <button class="btn btn-accent btn-submit" bind:tap="onSubmit" disabled="{{!agreed || submitting}}">
+      {{submitting ? '提交中...' : '确认报名'}}
+    </button>
+  </view>
+
+  <!-- 报名成功弹层 -->
+  <view class="success-mask" wx:if="{{showGroupModal}}">
+    <view class="success-mask-bg" catch:tap="onCloseGroupModal"></view>
+    <view class="success-mask-body">
+      <view class="success-icon">✓</view>
+      <text class="success-title">报名成功</text>
+      <text class="success-desc">您已成功报名「{{activityTitle}}」</text>
+      <block wx:if="{{groupQrCodeUrl}}">
+        <text class="success-tip">长按下方图片可保存或识别，扫码加入活动群</text>
+        <image class="success-qr" src="{{groupQrCodeUrl}}" mode="aspectFit" show-menu-by-longpress />
+      </block>
+      <block wx:else>
+        <text class="success-tip">请留意组织者后续通知，或关注「我的」页查看报名记录</text>
+      </block>
+      <button class="btn btn-primary btn-block success-btn" bind:tap="onCloseGroupModal">完成</button>
+    </view>
+  </view>
+</view>

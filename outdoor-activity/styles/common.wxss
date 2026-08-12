@@ -1,0 +1,300 @@
+/* ========== 公共样式 ========== */
+
+/* ---------- 布局工具类 ---------- */
+.container {
+  padding: var(--spacing-lg);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* ---------- 文字工具类 ---------- */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-weak {
+  color: var(--color-text-weak);
+}
+
+.text-white {
+  color: var(--color-text-white);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-green {
+  color: var(--color-primary);
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-xs {
+  font-size: var(--font-xs);
+}
+
+.text-sm {
+  font-size: var(--font-sm);
+}
+
+.text-md {
+  font-size: var(--font-md);
+}
+
+.text-lg {
+  font-size: var(--font-lg);
+}
+
+.text-xl {
+  font-size: var(--font-xl);
+}
+
+.text-xxl {
+  font-size: var(--font-xxl);
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* ---------- 间距工具类 ---------- */
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.ml-sm { margin-left: var(--spacing-sm); }
+.ml-md { margin-left: var(--spacing-md); }
+.mr-sm { margin-right: var(--spacing-sm); }
+.mr-md { margin-right: var(--spacing-md); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+
+/* ---------- 卡片样式 ---------- */
+.card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* ---------- 按钮样式 ---------- */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+  border-radius: var(--radius-btn);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  border: none;
+  line-height: 88rpx;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-white);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-primary:active {
+  background: var(--color-primary-dark);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-text-white);
+}
+
+.btn-accent:active {
+  opacity: 0.85;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2rpx solid var(--color-primary);
+}
+
+.btn-outline:active {
+  background: var(--color-primary-light);
+}
+
+.btn-disabled {
+  background: #CCCCCC;
+  color: var(--color-text-white);
+  pointer-events: none;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-sm {
+  height: 64rpx;
+  font-size: var(--font-md);
+  line-height: 64rpx;
+  padding: 0 32rpx;
+}
+
+/* ---------- 标签样式 ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border-radius: var(--radius-round);
+  font-size: var(--font-xs);
+  font-weight: 500;
+}
+
+.tag-green {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.tag-orange {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.tag-gray {
+  background: #F0F0F0;
+  color: var(--color-text-weak);
+}
+
+.tag-red {
+  background: #FDECEC;
+  color: var(--color-danger);
+}
+
+/* ---------- 表单样式 ---------- */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  font-size: var(--font-md);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.form-label .required {
+  color: var(--color-danger);
+  margin-left: 4rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  background: var(--color-bg);
+  border-radius: var(--radius-btn);
+  padding: 0 var(--spacing-md);
+  font-size: var(--font-md);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 200rpx;
+  background: var(--color-bg);
+  border-radius: var(--radius-btn);
+  padding: var(--spacing-md);
+  font-size: var(--font-md);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+/* ---------- 分割线 ---------- */
+.divider {
+  height: 1rpx;
+  background: var(--color-border);
+  margin: var(--spacing-md) 0;
+}
+
+/* ---------- 安全区底部 ---------- */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ---------- 底部固定栏 ---------- */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-bg-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+/* ---------- 页面底部占位 ---------- */
+.bottom-placeholder {
+  height: 140rpx;
+}

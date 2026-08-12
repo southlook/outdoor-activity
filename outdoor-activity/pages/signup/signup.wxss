@@ -1,0 +1,264 @@
+@import '../../styles/variables.wxss';
+
+.page-signup {
+  min-height: 100vh;
+  background: var(--color-bg);
+  padding-bottom: 20rpx;
+}
+
+/* 活动摘要 */
+.activity-summary {
+  background: var(--color-primary);
+  padding: 32rpx;
+  color: #fff;
+}
+
+.summary-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 12rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.summary-fee {
+  display: flex;
+  align-items: baseline;
+}
+
+.fee-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-right: 8rpx;
+}
+
+.fee-value {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+/* 表单卡片 */
+.form-card {
+  background: var(--color-bg-white);
+  margin: 16rpx 0;
+  padding: 32rpx;
+}
+
+/* 人数选择器 */
+.counter-row {
+  display: flex;
+  align-items: center;
+}
+
+.counter-btn {
+  width: 72rpx;
+  height: 72rpx;
+  background: var(--color-bg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.counter-btn.disabled {
+  opacity: 0.3;
+}
+
+.counter-btn:active {
+  background: #E0E0E0;
+}
+
+.counter-value {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  width: 100rpx;
+  text-align: center;
+}
+
+/* 报名须知 */
+.notice-card {
+  background: var(--color-bg-white);
+  margin: 16rpx 0;
+  padding: 32rpx;
+}
+
+.notice-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 20rpx;
+}
+
+.notice-list {
+  margin-bottom: 24rpx;
+}
+
+.notice-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12rpx;
+}
+
+.notice-dot {
+  color: var(--color-primary);
+  margin-right: 12rpx;
+  font-size: 28rpx;
+}
+
+.notice-item text:last-child {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.agree-row {
+  display: flex;
+  align-items: center;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--color-border);
+}
+
+.checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.checkbox.checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.agree-text {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 底部费用 */
+.total-fee {
+  display: flex;
+  align-items: baseline;
+  margin-right: 24rpx;
+}
+
+.total-label {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+.total-value {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.btn-submit {
+  flex: 1;
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 42rpx;
+  font-size: 32rpx;
+}
+
+/* 报名成功弹层 */
+.success-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-mask-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.success-mask-body {
+  position: relative;
+  width: 80%;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 48rpx 32rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.success-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 56rpx;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 96rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.success-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 12rpx;
+}
+
+.success-desc {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  margin-bottom: 24rpx;
+  text-align: center;
+  padding: 0 16rpx;
+}
+
+.success-tip {
+  font-size: 24rpx;
+  color: var(--color-text-weak);
+  margin-bottom: 20rpx;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.success-qr {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 12rpx;
+  margin-bottom: 24rpx;
+  background: #f5f5f5;
+}
+
+.success-btn {
+  margin-top: 12rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+}

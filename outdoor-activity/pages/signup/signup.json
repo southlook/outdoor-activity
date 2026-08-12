@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "活动报名",
+  "usingComponents": {
+    "privacy-popup": "/components/privacy-popup/privacy-popup"
+  }
+}

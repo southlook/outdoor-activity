@@ -1,0 +1,22 @@
+<view class="page-list">
+  <!-- 官方隐私授权弹窗 -->
+  <privacy-popup />
+
+  <view class="list-content" wx:if="{{activityList.length > 0}}">
+    <activity-card
+      wx:for="{{activityList}}"
+      wx:key="_id"
+      activity="{{item}}"
+      showDelete="{{true}}"
+      bind:delete="onDeleteActivity"
+    />
+  </view>
+
+  <empty-state
+    wx:if="{{!loading && activityList.length === 0}}"
+    icon="📋"
+    text="你还没有发布过活动"
+    actionText="去发布"
+    bind:action="goPublish"
+  />
+</view>

@@ -1,0 +1,13 @@
+<view class="page-agreement">
+  <view class="agreement-title">{{title}}</view>
+  <view class="agreement-update">{{updateTime}}</view>
+
+  <view class="agreement-body">
+    <view class="section" wx:for="{{sections}}" wx:key="heading">
+      <view class="section-heading">{{item.heading}}</view>
+      <view class="section-paragraph" wx:for="{{item.paragraphs}}" wx:for-item="para" wx:key="*this">
+        {{para}}
+      </view>
+    </view>
+  </view>
+</view>

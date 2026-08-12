@@ -1,0 +1,40 @@
+<view class="page-signups">
+  <!-- 官方隐私授权弹窗 -->
+  <privacy-popup />
+
+  <view class="signup-list" wx:if="{{signupList.length > 0}}">
+    <view class="signup-item card" wx:for="{{signupList}}" wx:key="index" bind:tap="goDetail" data-id="{{item.activityId}}">
+      <view class="signup-info">
+        <text class="signup-title text-ellipsis">{{item.activityTitle}}</text>
+        <view class="signup-meta">
+          <view class="meta-row">
+            <text class="meta-icon">👤</text>
+            <text class="meta-text">{{item.name}}</text>
+          </view>
+          <view class="meta-row">
+            <text class="meta-icon">👥</text>
+            <text class="meta-text">{{item.count}}人</text>
+          </view>
+          <view class="meta-row">
+            <text class="meta-icon">💰</text>
+            <text class="meta-text text-accent">¥{{item.totalFee}}</text>
+          </view>
+        </view>
+        <view class="signup-time">
+          <text class="time-text">报名时间：{{item.signupTimeText}}</text>
+        </view>
+      </view>
+      <view class="signup-status">
+        <text class="status-text confirmed">已确认</text>
+      </view>
+    </view>
+  </view>
+
+  <empty-state
+    wx:if="{{!loading && signupList.length === 0}}"
+    icon="🎫"
+    text="你还没有报名过活动"
+    actionText="去发现"
+    bind:action="goDiscover"
+  />
+</view>

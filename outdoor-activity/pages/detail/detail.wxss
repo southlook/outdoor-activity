@@ -1,0 +1,368 @@
+@import '../../styles/variables.wxss';
+
+.page-detail {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* 公众号文章直接落地时的返回首页条 */
+.entry-home-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-primary-light);
+  padding: 16rpx 24rpx;
+  font-size: 24rpx;
+}
+
+.entry-home-tip {
+  color: var(--color-text-secondary);
+}
+
+.entry-home-btn {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* 封面轮播 */
+.cover-swiper {
+  width: 100%;
+  height: 500rpx;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 基本信息 */
+.info-section {
+  background: var(--color-bg-white);
+  padding: 32rpx;
+  margin-bottom: 16rpx;
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24rpx;
+}
+
+.activity-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.status-badge {
+  flex-shrink: 0;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.tag-green {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.tag-red {
+  background: #FDECEC;
+  color: var(--color-danger);
+}
+
+.tag-gray {
+  background: #F0F0F0;
+  color: var(--color-text-weak);
+}
+
+/* 价格行 */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--color-border);
+  margin-bottom: 24rpx;
+}
+
+.price-info {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-label {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  margin-right: 12rpx;
+}
+
+.price-value {
+  font-size: 48rpx;
+  color: var(--color-accent);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.price-unit {
+  font-size: 24rpx;
+  color: var(--color-text-weak);
+  margin-left: 4rpx;
+}
+
+.participants-info {
+  text-align: right;
+}
+
+.participants-value {
+  font-size: 36rpx;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.participants-label {
+  font-size: 24rpx;
+  color: var(--color-text-weak);
+}
+
+/* 元信息卡片 */
+.meta-cards {
+  background: var(--color-bg);
+  border-radius: 16rpx;
+  padding: 8rpx 24rpx;
+}
+
+.meta-card-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid var(--color-border);
+}
+
+.meta-card-item:last-child {
+  border-bottom: none;
+}
+
+.meta-label {
+  font-size: 24rpx;
+  color: var(--color-text-weak);
+  width: 140rpx;
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+
+.meta-value {
+  font-size: 26rpx;
+  color: var(--color-text-primary);
+  flex: 1;
+  line-height: 1.6;
+}
+
+.fee-desc {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.location-nav {
+  font-size: 24rpx;
+  color: var(--color-primary);
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+/* 通用区块卡片 */
+.section-card {
+  background: var(--color-bg-white);
+  margin-bottom: 16rpx;
+  padding: 32rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 24rpx;
+}
+
+.title-bar {
+  width: 8rpx;
+  height: 32rpx;
+  background: var(--color-primary);
+  border-radius: 4rpx;
+  margin-right: 16rpx;
+}
+
+.title-bar.warning {
+  background: var(--color-warning);
+}
+
+.section-content {
+  padding-left: 24rpx;
+}
+
+.description-text {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.itinerary-text {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  line-height: 2;
+  white-space: pre-wrap;
+  background: var(--color-bg);
+  padding: 24rpx;
+  border-radius: 12rpx;
+}
+
+.notices-text {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  line-height: 2;
+  white-space: pre-wrap;
+}
+
+/* 报名用户列表 */
+.participants-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.participant-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120rpx;
+  margin-bottom: 24rpx;
+  margin-right: 20rpx;
+}
+
+.participant-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-bottom: 8rpx;
+}
+
+.participant-name {
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+  max-width: 120rpx;
+  text-align: center;
+}
+
+.no-participants {
+  font-size: 26rpx;
+  color: var(--color-text-weak);
+}
+
+/* 发布者 */
+.publisher-card {
+  padding-bottom: 48rpx;
+}
+
+.publisher-info {
+  display: flex;
+  align-items: center;
+  padding-left: 24rpx;
+}
+
+.publisher-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.publisher-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.publisher-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 6rpx;
+}
+
+.publisher-desc {
+  font-size: 24rpx;
+  color: var(--color-text-weak);
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  gap: 24rpx;
+}
+
+.bar-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16rpx;
+}
+
+.bar-icon {
+  font-size: 40rpx;
+}
+
+.bar-text {
+  font-size: 20rpx;
+  color: var(--color-text-weak);
+  margin-top: 2rpx;
+}
+
+.bar-btn-area {
+  flex: 1;
+}
+
+.btn-signup {
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 32rpx;
+  border-radius: 42rpx;
+}
+
+/* 加载中 */
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loading-spinner-large {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #eee;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 16rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: var(--color-text-weak);
+}

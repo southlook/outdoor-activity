@@ -1,0 +1,79 @@
+@import '../../styles/variables.wxss';
+
+.page-signups {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.signup-list {
+  padding: 24rpx;
+}
+
+.signup-item {
+  background: var(--color-bg-white);
+  border-radius: 16rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.signup-info {
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.signup-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: block;
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.signup-meta {
+  margin-bottom: 12rpx;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.meta-icon {
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+
+.meta-text {
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+}
+
+.signup-time {
+  margin-top: 8rpx;
+}
+
+.time-text {
+  font-size: 22rpx;
+  color: var(--color-text-weak);
+}
+
+.signup-status {
+  flex-shrink: 0;
+}
+
+.status-text {
+  font-size: 22rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+}
+
+.status-text.confirmed {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}

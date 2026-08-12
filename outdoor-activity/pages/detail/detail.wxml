@@ -1,0 +1,158 @@
+<view class="page-detail" wx:if="{{activity}}">
+  <!-- 官方隐私授权弹窗 -->
+  <privacy-popup />
+
+  <!-- 公众号文章直接落地时的返回首页按钮 -->
+  <view class="entry-home-bar" wx:if="{{isEntryPage}}">
+    <view class="entry-home-tip">当前为活动详情页</view>
+    <view class="entry-home-btn" bind:tap="goHome">返回首页</view>
+  </view>
+
+  <!-- 封面轮播图 -->
+  <swiper class="cover-swiper" indicator-dots indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay circular>
+    <swiper-item wx:for="{{allImages}}" wx:key="*this">
+      <image class="cover-image" src="{{item}}" mode="aspectFill" bind:tap="previewImage" data-url="{{item}}" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 基本信息 -->
+  <view class="info-section">
+    <view class="info-header">
+      <text class="activity-title">{{activity.title}}</text>
+      <view class="status-badge tag-{{statusInfo.type}}">
+        <text>{{statusInfo.text}}</text>
+      </view>
+    </view>
+
+    <!-- 价格与人数 -->
+    <view class="price-row">
+      <view class="price-info">
+        <text class="price-label">费用</text>
+        <text class="price-value">¥{{activity.fee}}</text>
+        <text class="price-unit">/人</text>
+      </view>
+      <view class="participants-info">
+        <text class="participants-value">{{activity.currentParticipants}}</text>
+        <text class="participants-label">/{{activity.maxParticipants}}人</text>
+      </view>
+    </view>
+
+    <!-- 时间地点信息卡片 -->
+    <view class="meta-cards">
+      <view class="meta-card-item">
+        <text class="meta-label">出发时间</text>
+        <text class="meta-value">{{startTimeText}}</text>
+      </view>
+      <view class="meta-card-item">
+        <text class="meta-label">结束时间</text>
+        <text class="meta-value">{{endTimeText}}</text>
+      </view>
+      <view class="meta-card-item">
+        <text class="meta-label">活动地点</text>
+        <view class="location-row" bind:tap="openLocation">
+          <text class="meta-value flex-1">{{activity.location.name}}</text>
+          <text class="location-nav">导航 ›</text>
+        </view>
+      </view>
+      <view class="meta-card-item" wx:if="{{activity.feeDescription}}">
+        <text class="meta-label">费用包含</text>
+        <text class="meta-value fee-desc">{{activity.feeDescription}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 活动详情 -->
+  <view class="section-card">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>活动介绍</text>
+    </view>
+    <view class="section-content">
+      <text class="description-text" user-select>{{activity.description}}</text>
+    </view>
+  </view>
+
+  <!-- 行程安排 -->
+  <view class="section-card" wx:if="{{activity.itinerary}}">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>行程安排</text>
+    </view>
+    <view class="section-content">
+      <text class="itinerary-text" user-select>{{activity.itinerary}}</text>
+    </view>
+  </view>
+
+  <!-- 注意事项 -->
+  <view class="section-card" wx:if="{{activity.notices}}">
+    <view class="section-title">
+      <view class="title-bar warning"></view>
+      <text>注意事项</text>
+    </view>
+    <view class="section-content">
+      <text class="notices-text" user-select>{{activity.notices}}</text>
+    </view>
+  </view>
+
+  <!-- 已报名用户 -->
+  <view class="section-card">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>已报名 ({{activity.currentParticipants}}人)</text>
+    </view>
+    <view class="section-content">
+      <view class="participants-list" wx:if="{{activity.participants && activity.participants.length > 0}}">
+        <view class="participant-item" wx:for="{{activity.participants}}" wx:key="userId">
+          <image class="participant-avatar" src="{{item.userAvatar}}" mode="aspectFill" />
+          <text class="participant-name text-ellipsis">{{item.userName}}</text>
+        </view>
+      </view>
+      <text class="no-participants" wx:else>暂无报名用户</text>
+    </view>
+  </view>
+
+  <!-- 发布者信息 -->
+  <view class="section-card publisher-card">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>发布者</text>
+    </view>
+    <view class="publisher-info">
+      <image class="publisher-avatar" src="{{activity.publisherAvatar}}" mode="aspectFill" />
+      <view class="publisher-detail">
+        <text class="publisher-name">{{activity.publisherName}}</text>
+        <text class="publisher-desc">资深户外领队</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部占位 -->
+  <view class="bottom-placeholder"></view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar safe-bottom">
+    <view class="bar-action" bind:tap="onShare">
+      <text class="bar-icon">↗️</text>
+      <text class="bar-text">分享</text>
+    </view>
+    <view class="bar-action" bind:tap="onToggleFavorite">
+      <text class="bar-icon">{{isFavorite ? '❤️' : '🤍'}}</text>
+      <text class="bar-text">{{isFavorite ? '已收藏' : '收藏'}}</text>
+    </view>
+    <view class="bar-btn-area">
+      <button
+        class="btn btn-accent btn-signup"
+        disabled="{{statusInfo.type === 'gray' || statusInfo.type === 'red'}}"
+        bind:tap="onSignup"
+      >
+        {{statusInfo.type === 'gray' ? '活动已结束' : statusInfo.type === 'red' ? '已满员' : '立即报名'}}
+      </button>
+    </view>
+  </view>
+</view>
+
+<!-- 加载中 -->
+<view class="loading-page" wx:if="{{loading}}">
+  <view class="loading-spinner-large"></view>
+  <text class="loading-text">加载中...</text>
+</view>

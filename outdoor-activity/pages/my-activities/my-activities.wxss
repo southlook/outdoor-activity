@@ -1,0 +1,10 @@
+@import '../../styles/variables.wxss';
+
+.page-list {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.list-content {
+  padding: 24rpx;
+}

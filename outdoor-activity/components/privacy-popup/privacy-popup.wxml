@@ -1,0 +1,21 @@
+<view class="privacy-mask" wx:if="{{show}}" catchtouchmove="noop">
+  <view class="privacy-dialog">
+    <view class="dialog-title">隐私保护提示</view>
+
+    <view class="dialog-content">
+      <text>感谢您使用野见山川！在使用本小程序前，请仔细阅读</text>
+      <text class="dialog-link" bind:tap="onViewContract">《隐私政策》</text>
+      <text>。我们将严格按照政策内容收集、使用和保护您的个人信息，未经您的同意，我们不会向第三方共享、转让您的信息。您可以选择"拒绝"并继续使用浏览功能，但涉及个人信息的功能将无法使用。</text>
+    </view>
+
+    <view class="dialog-btns">
+      <button class="btn-disagree" bind:tap="onDisagree">拒绝</button>
+      <button
+        id="agree-btn"
+        class="btn-agree"
+        open-type="agreePrivacyAuthorization"
+        bindagreeprivacyauthorization="onAgree"
+      >同意并继续</button>
+    </view>
+  </view>
+</view>

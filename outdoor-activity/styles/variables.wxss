@@ -1,0 +1,46 @@
+/* ========== 全局样式变量 ========== */
+page {
+  --color-primary: #2DB84B;
+  --color-primary-light: #E8F8EB;
+  --color-primary-dark: #1E9A3A;
+  --color-accent: #FF6B35;
+  --color-accent-light: #FFF0EB;
+  --color-bg: #F5F6F8;
+  --color-bg-white: #FFFFFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-weak: #999999;
+  --color-text-white: #FFFFFF;
+  --color-border: #EEEEEE;
+  --color-danger: #E74C3C;
+  --color-warning: #F5A623;
+  --color-success: #2DB84B;
+
+  --radius-card: 16rpx;
+  --radius-btn: 8rpx;
+  --radius-round: 999rpx;
+  --radius-img: 12rpx;
+
+  --shadow-card: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  --shadow-btn: 0 4rpx 12rpx rgba(45, 184, 75, 0.3);
+
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+
+  --font-xs: 20rpx;
+  --font-sm: 24rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-xxl: 44rpx;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  font-size: var(--font-md);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  box-sizing: border-box;
+}
