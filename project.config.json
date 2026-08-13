@@ -12,16 +12,25 @@
       "outputPath": ""
     },
     "useCompilerPlugins": false,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "compileWorklet": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "compileType": "miniprogram",
-  "miniprogramRoot": "outdoor-activity/",
-  "cloudfunctionRoot": "outdoor-activity/cloud/functions/",
+  "cloudfunctionRoot": "cloud/functions/",
   "simulatorPluginLibVersion": {},
   "packOptions": {
     "ignore": [],
     "include": []
   },
   "appid": "wxfc673e8aeeed2a0e",
-  "editorSetting": {}
+  "editorSetting": {},
+  "libVersion": "3.17.0"
 }
